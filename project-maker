@@ -1,0 +1,43 @@
+#!/bin/bash
+
+DESTINATION_DIR=/home/aaron/business/_current/
+SUBFOLDER_NAMES=('_src' 'drawings' 'exports')
+SOURCE_FOLDER="_src"
+TAGS_FILE="_tags.txt"
+
+now="$(date +'%Y%m%d')"
+
+base_name="$2_$3"
+
+project_directory="$DESTINATION_DIR${now}_$1_$2_$3"
+
+
+
+mkdir $project_directory
+cd $project_directory
+
+for dir in "${SUBFOLDER_NAMES[@]}";
+do
+	mkdir $dir
+	echo "adding the $dir directory"
+done
+
+cd $SOURCE_FOLDER
+touch $TAGS_FILE
+echo $now >> $TAGS_FILE
+
+# write file name to tags for easy getting into clipboard to put in trello
+echo $base_name >> $TAGS_FILE
+
+# clear out positional parameters to clear the way to receive tags
+shift 3
+
+# write the tags to the tags file
+echo "$# tags have been added to the $TAGS_FILE"
+for arg in "$@"; do
+	echo $arg >> $TAGS_FILE
+done
+
+echo "$base_name was created."
+
+

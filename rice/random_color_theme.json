@@ -1,0 +1,27 @@
+{
+  "wallpaper": "/home/john/Pictures/Anime/Fate/rin_arch_blue_back.png",
+  "alpha": "100",
+  "special": {
+    "background": "#000000",
+    "foreground": "#000000",
+    "cursor": "#000000"
+  },
+  "colors": {
+    "color0": "#231f20",
+    "color1": "#a36eef",
+    "color2": "#ef4d8e",
+    "color3": "#406dcf",
+    "color4": "#efbe36",
+    "color5": "#ad2fbb",
+    "color6": "#2b5707",
+    "color7": "#277040",
+    "color8": "#9f4f82",
+    "color9": "#6e3f81",
+    "color10": "#79f98d",
+    "color11": "#e07113",
+    "color12": "#869aff",
+    "color13": "#e7faff",
+    "color14": "#525290",
+    "color15": "#30a626"
+  }
+}

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+CINTIQ="Wacom Cintiq Pro 24 Pen stylus"
+CINTIQ_WIDTH=$(eval "xsetwacom get '$CINTIQ' Area | cut -d ' ' -f3")
+AOC_WIDTH=$(eval "xrandr | grep DP-2 | cut -d 'x' -f1 | cut -d ' ' -f3")
+AOC_HEIGHT=$(eval "xrandr | grep DP-2 | cut -d 'x' -f2 | cut -d '+' -f1")
+
+
+# Restrict wacom to draw only on external monitor
+xsetwacom set 'Wacom Cintiq Pro 24 Pen stylus' MapToOutput HEAD-0 
+
+
+
+
+

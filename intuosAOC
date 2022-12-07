@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xsetwacom set 'Wacom Intuos3 6x11 Pen stylus' Area 0 0 54204 30489

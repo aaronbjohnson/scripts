@@ -1,0 +1,25 @@
+#/bin/bash
+
+function set_audio_level {
+	ar1=$1
+	if [[ $ar1 = "up" ]]; then
+	#old..	volume_level="$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')"
+	
+		# I'm adding this to match with update_volume.sh...this is how we do it on this system
+		volume_level="$(amixer sget Master | awk -F'[][]' '{ print $2 }')"
+		volume_level="${volume_level%?}"
+		##keep a 150 limit to the audio level
+		if ((volume_level < 150)); then
+			# Aaron- relized i have to use index 1 instead of 0. 0 is nvidia, 1 is intel(MOBO)
+			pactl set-sink-volume 1 +5%
+		fi
+	elif [[ $ar1 = "down" ]]; then
+		pactl set-sink-volume 1 -5%
+	elif [[ $ar1 = "mute" ]]; then
+		pactl set-sink-mute 1 toggle
+	fi
+	"/home/aaron/.scripts/dwm/update_volume.sh"
+}
+
+set_audio_level $1
+
